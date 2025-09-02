@@ -1,14 +1,16 @@
 import styled, { css } from 'styled-components';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function Filmes() {
   const [filmes, setFilmes] = useState([]);
 
   useEffect(() => {
-    axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies")
-      .then((resposta) => {
-        setFilmes(resposta.data);
+    axios
+      .get("https://mock-api.driven.com.br/api/v8/cineflex/movies")
+      .then((res) => {
+        setFilmes(res.data);
       })
       .catch((erro) => {
         console.error("Erro ao buscar filmes:", erro);
@@ -22,7 +24,9 @@ export default function Filmes() {
       <FilmesContainer>
         {filmes.map((filme) => (
           <Filme key={filme.id}>
-            <img src={filme.posterURL} alt={filme.title} />
+            <FilmeImg to={`sessoes/${filme.id}`}>
+              <img src={filme.posterURL} alt={filme.title} />
+            </FilmeImg>
           </Filme>
         ))}
       </FilmesContainer>
@@ -62,10 +66,23 @@ const Conteudo = styled.div`
 
 const Filme = styled.div`
   ${centerFlex};
-   
+`;
+
+const FilmeImg = styled(Link)`
+  display: block;
+  width: 150px;
+  border-radius: 5px;
+  overflow: hidden;
+
   img {
-    width: 150px;
+    display: block;
+    width: 100%;
     height: auto;
     border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
   }
 `;

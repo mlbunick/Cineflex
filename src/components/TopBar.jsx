@@ -1,5 +1,14 @@
 import styled from 'styled-components';
-import movieIcon from '../../assets/icons/movie.png'
+import movieIcon from '../assets/icons/movie.png'
+
+export default function TopBar() {
+  return (
+    <TopBarContainer>
+      <LogoTipoCineflex src={movieIcon}></LogoTipoCineflex>
+      <Title>Cineflex</Title>
+    </TopBarContainer>
+  );
+}
 
 const TopBarContainer = styled.div`
     position: fixed;
@@ -32,12 +41,3 @@ const LogoTipoCineflex = styled.img`
     width: 40px;
     height: 40px;
 `;
-
-export default function TopBar() {
-  return (
-    <TopBarContainer>
-      <LogoTipoCineflex src={movieIcon}></LogoTipoCineflex>
-      <Title>Cineflex</Title>
-    </TopBarContainer>
-  );
-}
