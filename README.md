@@ -1,12 +1,56 @@
-# React + Vite
+# 🎬 Cineflex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação React que simula um sistema de compra de ingressos de cinema.  
+Permite escolher o filme, horário de sessão, selecionar assentos e finalizar a compra.  
 
-Currently, two official plugins are available:
+🚀 Deploy: [Cineflex - Vercel](https://cineflex-seven-bay.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📱 Layout
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O layout do projeto segue o Figma fornecido (apenas versão mobile):  
+[Cineflex - Figma](https://www.figma.com/design/gd33iwfpYMAO8BQGH7QgDH/Cineflex?m=dev&node-id=0-1)
+
+---
+
+## 🛠️ Tecnologias
+
+- **React** (com Vite)
+- **React Router DOM**
+- **Styled-components**
+- **Axios**
+- API REST fornecida pela Driven
+
+---
+
+## 🔗 API Utilizada
+
+- 🎥 **Filmes em cartaz**  
+  `GET https://mock-api.driven.com.br/api/v8/cineflex/movies`
+
+- 📅 **Sessões por filme**  
+  `GET https://mock-api.driven.com.br/api/v8/cineflex/movies/:idFilme/showtimes`
+
+- 💺 **Assentos por sessão**  
+  `GET https://mock-api.driven.com.br/api/v8/cineflex/showtimes/:idSessao/seats`
+
+- ✅ **Reservar assentos**  
+  `POST https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many`
+
+---
+
+## ⚙️ Como rodar o projeto
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/cineflex.git
+
+# Entre na pasta
+cd cineflex
+
+# Instale as dependências
+npm install
+
+# Rode o projeto
+npm run dev
