@@ -1,4 +1,4 @@
-import Filmes from "../components/Filmes"
+import Filmes from "./Filmes"
 import styled from 'styled-components';
 
 export default function Home(){
